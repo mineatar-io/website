@@ -10,26 +10,29 @@ import backBody from '../assets/img/back-body.png';
 import leftBody from '../assets/img/left-body.png';
 import rightBody from '../assets/img/right-body.png';
 import rawSkin from '../assets/img/raw-skin.png';
+import Route from '../components/Route';
 
 export default function Page() {
 	return (
 		<>
 			<div className="bg-neutral-200">
-				<div className="container mx-auto max-w-4xl pt-24 pb-12">
-					<div className="flex flex-row items-center gap-8">
+				<div className="container mx-auto max-w-4xl pt-12 md:pt-24 md:pb-12 px-4">
+					<div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-8">
 						<Image src={head} alt="Head" width="80" />
 						<hgroup>
-							<h1 className="text-6xl text-black">
+							<h1 className="text-4xl md:text-6xl text-black">
 								<span className="font-black">Mine</span>
 								<span>atar</span>
 							</h1>
-							<p className="text-2xl mt-1">A fast and efficient Minecraft avatar service</p>
+							<p className="text-lg md:text-2xl mt-1">A fast and efficient Minecraft avatar service</p>
 						</hgroup>
 					</div>
 				</div>
 			</div>
-			<WaveImage width="100vw" height="120px" className="text-neutral-200" />
-			<div className="container mx-auto max-w-4xl py-8">
+			<div className="overflow-hidden">
+				<WaveImage width="100vw" height="120px" className="text-neutral-200 min-w-[640px]" />
+			</div>
+			<div className="container mx-auto max-w-4xl py-8 px-4">
 				<AnchorHeader size={2} className="text-2xl font-bold" id="about">What is Mineatar?</AnchorHeader>
 				<p className="mt-3">Mineatar is an online API for developers and website owners that allows the embedding of Minecraft avatars as images, including faces, head renders, and full body renders. It is incredibly fast and supports all of the latest Minecraft features, like slim player models and overlays.</p>
 				<p className="mt-3">It is really easy to get started using our service: simply find the type of image that you are wanting to embed on your own website or service, and copy the URL. Replace the <code>&lt;uuid&gt;</code> text in the URL with the UUID of the Minecraft player, with or without hyphens, both are allowed.</p>
@@ -59,385 +62,85 @@ export default function Page() {
 				<p className="mt-1">The short answer: you can&apos;t. Just be patient, our service is intentionally designed to cache and store skins and renders for up to 24 hours to prevent abuse. Please do not attempt to contact us to request any exceptions to our cache.</p>
 				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="routes">Routes</AnchorHeader>
 				<div className="flex flex-col gap-3 mt-5">
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/face/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={face} width="96" height="96" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/head/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={head} width="96" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/body/full/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={fullBody} width="96" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/body/front/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={frontBody} width="96" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/body/back/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={backBody} width="96" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/body/left/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={leftBody} width="64" className="mx-4" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/body/right/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>scale</code></th>
-										<td className="table-cell text-left p-3"><code>integer</code></td>
-										<td className="table-cell text-left p-3"><code>4</code></td>
-										<td className="table-cell text-left p-3">The scaling factor applied to the image dimensions (1 - 64)</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>overlay</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Enables the overlay layer of the skin</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={rightBody} width="64" className="mx-4" />
-						</div>
-					</div>
-					<div className="flex border border-neutral-200 p-5 rounded-lg">
-						<div className="border-r border-r-neutral-200 pr-5 grow">
-							<p className="flex items-center gap-2">
-								<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>
-								<code>https://api.mineatar.io<span className="font-bold">/skin/&lt;uuid&gt;</span></code>
-							</p>
-							<p className="font-bold mt-5">Query Parameters</p>
-							<table className="table table-auto w-full border border-neutral-200 mt-2">
-								<thead className="table-header-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-										<th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
-									</tr>
-								</thead>
-								<tbody className="table-row-group">
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>fallback</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>true</code></td>
-										<td className="table-cell text-left p-3">Fallback to default skin if skin is unavailable</td>
-									</tr>
-									<tr className="table-row">
-										<th className="table-cell text-left p-3"><code>download</code></th>
-										<td className="table-cell text-left p-3"><code>boolean</code></td>
-										<td className="table-cell text-left p-3"><code>false</code></td>
-										<td className="table-cell text-left p-3">Force the browser to open a download dialog</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div className="pl-5">
-							<Image src={rawSkin} width="96" />
-						</div>
-					</div>
+					<Route path="/face/<uuid>" result={face} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/head/<uuid>" result={head} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/body/full/<uuid>" result={fullBody} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/body/front/<uuid>" result={frontBody} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/body/back/<uuid>" result={backBody} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/body/left/<uuid>" result={leftBody} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/body/right/<uuid>" result={rightBody} query={[
+						{ name: 'scale', type: 'integer', default: '4', description: 'The scaling factor applied to the image dimensions (1 - 64)' },
+						{ name: 'overlay', type: 'boolean', default: 'true', description: 'Enables the overlay layer of the skin' },
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
+					<Route path="/skin/<uuid>" result={rawSkin} query={[
+						{ name: 'download', type: 'boolean', default: 'false', description: 'Forces the browser to open a download dialog' }
+					]} />
 				</div>
 				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="credit">Credit</AnchorHeader>
+				<p className="mt-1">Without the support of other services, this service would not be possible. We would like to give credit to the services that made us possible.</p>
+				<ul className="list-disc list-inside mt-3">
+					<li>
+						<span className="text-neutral-500">
+							<a href="https://github.com/crafatar/crafatar" className="link">Crafatar</a> &ndash; Provided an example of how isometric skin parts are rendered
+						</span>
+					</li>
+					<li>
+						<span className="text-neutral-500">
+							<a href="https://feathericons.com/" className="link">Feather Icons</a> &ndash; Modern icons used on this website
+						</span>
+					</li>
+				</ul>
 				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="contact">Contact</AnchorHeader>
+				<p className="mt-1">If you would like to contact us, you can do so by sending an email to <a href="mailto:contact@mineatar.io" className="link">contact@mineatar.io</a>.</p>
+				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="also-check-out">Also check out...</AnchorHeader>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+					<a href="https://mcstatus.io">
+						<div className="border border-neutral-200 hover:border-neutral-300 rounded-lg p-5">
+							<p className="font-bold text-lg">mcstatus.io</p>
+							<p className="mt-1">A fast and simple Minecraft server status utility that also has an API</p>
+						</div>
+					</a>
+				</div>
 			</div>
+			<WaveImage width="100vw" height="60px" className="text-neutral-200 -scale-x-100 -scale-y-100" />
 			<div className="bg-neutral-200">
-				<div className="container mx-auto max-w-4xl py-6">
-					<p>&copy; {new Date().getFullYear()} PassTheMayo</p>
+				<div className="container mx-auto max-w-4xl pt-2 pb-6 px-8">
+					<div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center">
+						<p>&copy; <span className="font-bold">{new Date().getFullYear()} Jacob Gunther</span></p>
+						<ul className="flex flex-row gap-3 list-none">
+							<li>
+								<a href="https://github.com/mineatar-io" className="link p-1">GitHub</a>
+							</li>
+							<li>
+								<a href="https://status.mineatar.io" className="link p-1">Status Page</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</>
