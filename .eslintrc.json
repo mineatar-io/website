@@ -5,7 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@next/next/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -45,8 +46,14 @@
                 "postcss.config.js"
             ],
             "env": {
-                "commonjs": true
+                "commonjs": true,
+                "node": true
             }
         }
-    ]
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 }
