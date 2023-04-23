@@ -32,8 +32,8 @@ export default function Route({ path, query, result }) {
 					</tbody>
 				</table>
 			</div>
-			<div className="mt-5 md:mt-0 md:pl-5">
-				<Image src={result} width="96" height="96" alt={`Example result for ${path}`} />
+			<div className="mt-5 md:mt-0 md:pl-5 md:w-[240px]">
+				<Image src={result} width="256" height="256" alt={`Example result for ${path}`} className="max-h-[240px] md:min-h-[96px] md:mx-auto w-auto md:max-h-[420px]" />
 			</div>
 		</div>
 	);
