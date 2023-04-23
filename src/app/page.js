@@ -42,7 +42,7 @@ export default function Page() {
 				<AnchorHeader size={3} className="text-xl font-semibold mt-5" id="efficient-caching">Efficient caching</AnchorHeader>
 				<p className="mt-1">Once a new player has been fetched once, the skin will be stored in the database of our server for up to a day. This allows any further renders to be fast, and we do not need to wait to fetch a new Minecraft skin from the Mojang API. After the cache has expired, the latest skin will be downloaded from Mojang during any new requests.</p>
 				<AnchorHeader size={3} className="text-xl font-semibold mt-5" id="custom-scaling">Custom scaling</AnchorHeader>
-				<p className="mt-1">TODO</p>
+				<p className="mt-1">Almost all of the routes support custom scaling, meaning you can change the dimensions of the image based on a scaling factor. Simply use the <code>scale</code> query parameter to change the scaling.</p>
 				<AnchorHeader size={3} className="text-xl font-semibold mt-5" id="overlay-toggling">Overlay toggling</AnchorHeader>
 				<p className="mt-1">Every image route supports toggling the overlay (helmet) of the Minecraft skin being rendered. This allows you to view the player without this layer if it is necessary. It is enabled by default on all routes, but it can be disabled using query parameters. You can learn more by viewing the <Link href="#options" className="link">options section</Link>.</p>
 				<AnchorHeader size={3} className="text-xl font-semibold mt-5" id="regular-and-slim-models">Regular and slim models</AnchorHeader>
