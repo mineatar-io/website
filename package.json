@@ -26,9 +26,9 @@
 		"@svgr/webpack": "^7.0.0",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.0",
-		"eslint-config-next": "^13.3.0",
-		"next": "^13.3.0",
-		"postcss": "^8.4.22",
+		"eslint-config-next": "^13.3.1",
+		"next": "^13.3.1",
+		"postcss": "^8.4.23",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"sass": "^1.62.0",
@@ -38,7 +38,7 @@
 	"devDependencies": {
 		"@next/eslint-plugin-next": "^13.3.1",
 		"@types/semver": "^7.3.13",
-		"eslint": "^8.38.0",
+		"eslint": "^8.39.0",
 		"eslint-plugin-react": "^7.32.2"
 	}
 }
