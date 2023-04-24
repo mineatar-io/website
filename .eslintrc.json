@@ -49,6 +49,12 @@
                 "commonjs": true,
                 "node": true
             }
+        },
+        {
+            "files": "src/public/js/ga.js",
+            "globals": {
+                "dataLayer": true
+            }
         }
     ],
     "settings": {

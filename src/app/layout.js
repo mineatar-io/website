@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { Inter, Fira_Mono } from 'next/font/google';
 import '../styles/global.sass';
 
@@ -94,6 +95,8 @@ export default function RootLayout({ children }) {
 		<html lang="en" className={`${interFont.variable} ${firaMonoFont.variable}`}>
 			<body className="bg-white overflow-x-hidden w-[100vw] scroll-smooth">
 				{children}
+				<Script src="https://www.googletagmanager.com/gtag/js?id=G-76CZV53176" strategy="afterInteractive" />
+				<Script src="/js/ga.js" id="google-analytics" strategy="afterInteractive" />
 			</body>
 		</html>
 	);
