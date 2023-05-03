@@ -1,26 +1,20 @@
 export default async function Loading() {
 	return (
-		<div className="border border-neutral-200 rounded-lg p-5 flex gap-3 mt-5">
-			<div className="w-1/4">
-				<div className="block rounded bg-neutral-300 opacity-70 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 opacity-70 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full" />
+		<>
+			<div className="flex gap-6 mt-5">
+				<div className="block rounded bg-neutral-200 w-[180px] h-[320px]" />
+				<div className="block rounded bg-neutral-200 grow h-[320px]" />
 			</div>
-			<div className="w-3/4">
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 opacity-70 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 opacity-70 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full mb-3" />
-				<div className="block rounded bg-neutral-300 h-12 w-full" />
+			<div className="flex gap-6 mt-5">
+				<div className="block rounded bg-neutral-200 grow h-[320px]" />
+				<div className="block rounded bg-neutral-200 grow h-[320px]" />
+				<div className="block rounded bg-neutral-200 grow h-[320px]" />
+				<div className="block rounded bg-neutral-200 grow h-[320px]" />
 			</div>
-		</div>
+			<div className="flex gap-6 mt-5">
+				<div className="block rounded bg-neutral-200 grow h-[180px]" />
+				<div className="block rounded bg-neutral-200 grow h-[180px]" />
+			</div>
+		</>
 	);
 }

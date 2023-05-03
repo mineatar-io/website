@@ -19,16 +19,13 @@ export default function Search({ username = '' }) {
 		onSubmit: ({ username }) => push(`/player/${encodeURIComponent(username)}`)
 	});
 
-	// TODO make submit button grayed out if it's disabled
-	// TODO use /api/lookup route for retrieving player info
-
 	return (
 		<div className="border border-neutral-200 rounded-lg p-5">
 			<form onSubmit={form.handleSubmit}>
 				<label className="font-bold text-lg" htmlFor="username">Lookup Player</label>
 				<div className="flex flex-row gap-3 mt-2">
 					<input type="text" className={`px-3 py-2 border ${form.errors.username ? 'border-red-500' : 'border-neutral-300 hover:border-neutral-500 focus:border-neutral-500'} rounded grow outline-none`} defaultValue={form.values.username} placeholder="Username or UUID" id="username" onChange={form.handleChange} onBlur={form.handleBlur} autoComplete="off" spellCheck="false" autoCapitalize="off" autoCorrect="off" autoFocus={true} />
-					<button type="submit" className="px-3 py-2 border border-neutral-300 hover:border-neutral-500 focus:border-neutral-500 rounded" disabled={!form.isValid || form.isSubmitting}>Submit</button>
+					<button type="submit" className="px-3 py-2 border disabled:border-neutral-100 disabled:bg-neutral-100 [&:not(:disabled)]:border-neutral-300 hover:[&:not(:disabled)]:border-neutral-500 focus:[&:not(:disabled)]:border-neutral-500 rounded" disabled={!form.isValid || form.isSubmitting || !form.dirty}>Submit</button>
 				</div>
 				{
 					form.errors.username

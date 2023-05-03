@@ -9,6 +9,8 @@ export async function getProfile(uuid) {
 		const result = await fetch(`${process.env.NEXT_PUBLIC_INTERNAL_API_HOST}/lookup?username=${encodeURIComponent(uuid)}`);
 
 		if (result.status !== 200) {
+			if (result.status === 404) return null;
+
 			const body = await result.text();
 
 			throw new Error(body);
@@ -36,69 +38,75 @@ export async function getProfile(uuid) {
 export default async function Page({ params: { id } }) {
 	const profile = await getProfile(id);
 
+	await new Promise(r => setTimeout(r, 1000 * 1));
+
 	return (
-		<>
-			<div className="border border-neutral-200 rounded-lg p-10 mt-5">
-				<div className="flex flex-row items-center gap-10">
-					<div className="pl-2 pr-10 border-r border-r-neutral-200 py-5">
-						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" alt={`Full body of ${profile.name}`} />
+		profile
+			? <>
+				<div className="border border-neutral-200 rounded-lg p-10 mt-5">
+					<div className="flex flex-row items-center gap-10">
+						<div className="pl-2 pr-10 border-r border-r-neutral-200 py-5">
+							<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" alt={`Full body of ${profile.name}`} priority />
+						</div>
+						<div className="flex flex-col gap-3 grow">
+							<div>
+								<p className="font-bold text-xl">Username</p>
+								<p className="mt-1 font-mono">{profile.name}</p>
+							</div>
+							<div>
+								<p className="font-bold text-xl">UUID</p>
+								<p className="flex flex-row gap-3 items-center mt-1">
+									<span className="font-mono">{hyphenateUUID(profile.id.replaceAll('-', ''))}</span>
+									<CopyToClipboardButton text={hyphenateUUID(profile.id.replaceAll('-', ''))} />
+								</p>
+							</div>
+							<div>
+								<p className="font-bold text-xl">Trimmed UUID</p>
+								<p className="flex flex-row gap-3 items-center mt-1">
+									<span className="font-mono">{profile.id.replaceAll('-', '')}</span>
+									<CopyToClipboardButton text={profile.id.replaceAll('-', '')} />
+								</p>
+							</div>
+							<div className="flex flex-row gap-3 mt-2">
+								<a className="flex flex-row items-center gap-2 px-3 py-2 rounded border border-neutral-300 hover:border-neutral-500" href={`https://api.mineatar.io/skin/${profile.id}?download=true`} target="_blank" rel="noreferrer">
+									<DownloadIcon width="20" height="20" />
+									<span>Download Raw Skin</span>
+								</a>
+							</div>
+						</div>
 					</div>
-					<div className="flex flex-col gap-3 grow">
-						<div>
-							<p className="font-bold text-xl">Username</p>
-							<p className="mt-1 font-mono">{profile.name}</p>
-						</div>
-						<div>
-							<p className="font-bold text-xl">UUID</p>
-							<p className="flex flex-row gap-3 items-center mt-1">
-								<span className="font-mono">{hyphenateUUID(profile.id.replaceAll('-', ''))}</span>
-								<CopyToClipboardButton text={hyphenateUUID(profile.id.replaceAll('-', ''))} />
-							</p>
-						</div>
-						<div>
-							<p className="font-bold text-xl">Trimmed UUID</p>
-							<p className="flex flex-row gap-3 items-center mt-1">
-								<span className="font-mono">{profile.id.replaceAll('-', '')}</span>
-								<CopyToClipboardButton text={profile.id.replaceAll('-', '')} />
-							</p>
-						</div>
-						<div className="flex flex-row gap-3 mt-2">
-							<a className="flex flex-row items-center gap-2 px-3 py-2 rounded border border-neutral-300 hover:border-neutral-500" href={`https://api.mineatar.io/skin/${profile.id}?download=true`} target="_blank" rel="noreferrer">
-								<DownloadIcon width="20" height="20" />
-								<span>Download Raw Skin</span>
-							</a>
-						</div>
+				</div>
+				<div className="flex flex-row items-center gap-5 mt-5">
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Front side body of ${profile.name}`} priority />
+						<p className="font-bold">Front Side of Body</p>
+					</div>
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} priority />
+						<p className="font-bold">Left Side of Body</p>
+					</div>
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Back side body of ${profile.name}`} priority />
+						<p className="font-bold">Back Side of Body</p>
+					</div>
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} priority />
+						<p className="font-bold">Right Side of Body</p>
 					</div>
 				</div>
+				<div className="flex flex-row items-center gap-5 mt-5">
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" alt={`Face of ${profile.name}`} priority />
+						<p className="font-bold">Face</p>
+					</div>
+					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`} width="221" height="256" className="max-h-[216px] w-auto" alt={`Head of ${profile.name}`} priority />
+						<p className="font-bold">Head</p>
+					</div>
+				</div>
+			</>
+			: <div className="border border-red-500 bg-red-100 rounded-lg p-5 mt-5">
+				<p className="font-bold text-red-500">No Minecraft player was found with the username or UUID <code>{id}</code>.</p>
 			</div>
-			<div className="flex flex-row items-center gap-5 mt-5">
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Front side body of ${profile.name}`} />
-					<p className="font-bold">Front Side of Body</p>
-				</div>
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} />
-					<p className="font-bold">Left Side of Body</p>
-				</div>
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Back side body of ${profile.name}`} />
-					<p className="font-bold">Back Side of Body</p>
-				</div>
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} />
-					<p className="font-bold">Right Side of Body</p>
-				</div>
-			</div>
-			<div className="flex flex-row items-center gap-5 mt-5">
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" alt={`Face of ${profile.name}`} />
-					<p className="font-bold">Face</p>
-				</div>
-				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`} width="221" height="256" className="max-h-[216px] w-auto" alt={`Head of ${profile.name}`} />
-					<p className="font-bold">Head</p>
-				</div>
-			</div>
-		</>
 	);
 }

@@ -8,6 +8,7 @@ export async function GET(req) {
 	if (!/^[A-Za-z0-9_]{1,16}$/.test(username)) return new NextResponse('Invalid username', { status: 400 });
 
 	const result = await fetch(`https://api.mojang.com/users/profiles/minecraft/${encodeURIComponent(username)}`);
+	if (result.status === 404) return new NextResponse(`No Minecraft player found by the username ${username}`, { status: 404 });
 	if (result.status !== 200) return new NextResponse(result.body, result);
 
 	const body = await result.json();
