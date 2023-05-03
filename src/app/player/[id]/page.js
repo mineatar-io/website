@@ -38,8 +38,6 @@ export async function getProfile(uuid) {
 export default async function Page({ params: { id } }) {
 	const profile = await getProfile(id);
 
-	await new Promise(r => setTimeout(r, 1000 * 1));
-
 	return (
 		profile
 			? <>
