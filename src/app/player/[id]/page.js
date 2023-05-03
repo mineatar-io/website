@@ -34,24 +34,14 @@ export async function getProfile(uuid) {
 }
 
 export default async function Page({ params: { id } }) {
-	let profile = null;
-
-	try {
-		profile = await getProfile(id);
-	} catch {
-		return (
-			<div className="border border-red-500 bg-red-100 rounded-lg p-5 mt-5">
-				<p className="font-bold text-red-500">Failed to retrieve a profile by the username or UUID of <code>{id}</code>.</p>
-			</div>
-		);
-	}
+	const profile = await getProfile(id);
 
 	return (
 		<>
 			<div className="border border-neutral-200 rounded-lg p-10 mt-5">
 				<div className="flex flex-row items-center gap-10">
 					<div className="pl-2 pr-10 border-r border-r-neutral-200 py-5">
-						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" />
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" alt={`Full body of ${profile.name}`} />
 					</div>
 					<div className="flex flex-col gap-3 grow">
 						<div>
@@ -83,29 +73,29 @@ export default async function Page({ params: { id } }) {
 			</div>
 			<div className="flex flex-row items-center gap-5 mt-5">
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Front side body of ${profile.name}`} />
 					<p className="font-bold">Front Side of Body</p>
 				</div>
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} />
 					<p className="font-bold">Left Side of Body</p>
 				</div>
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Back side body of ${profile.name}`} />
 					<p className="font-bold">Back Side of Body</p>
 				</div>
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} />
 					<p className="font-bold">Right Side of Body</p>
 				</div>
 			</div>
 			<div className="flex flex-row items-center gap-5 mt-5">
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" alt={`Face of ${profile.name}`} />
 					<p className="font-bold">Face</p>
 				</div>
 				<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
-					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`} width="221" height="256" className="max-h-[216px] w-auto" />
+					<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`} width="221" height="256" className="max-h-[216px] w-auto" alt={`Head of ${profile.name}`} />
 					<p className="font-bold">Head</p>
 				</div>
 			</div>
