@@ -35,6 +35,30 @@ export async function getProfile(uuid) {
 	return body;
 }
 
+export async function generateMetadata({ params: { id } }) {
+	const profile = await getProfile(id);
+
+	return {
+		title: profile.name,
+		description: `The profile information and rendered skin for the Minecraft player ${profile.name}.`,
+		openGraph: {
+			title: `${profile.name} - Mineatar`,
+			description: `The profile information and rendered skin for the Minecraft player ${profile.name}.`,
+			url: `/player/${profile.id}`,
+			siteName: 'Mineatar',
+			images: [
+				{
+					url: '/img/icon.png',
+					width: 591,
+					height: 591
+				}
+			],
+			locale: 'en-US',
+			type: 'website'
+		},
+	};
+}
+
 export default async function Page({ params: { id } }) {
 	const profile = await getProfile(id);
 
