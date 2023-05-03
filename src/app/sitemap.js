@@ -1,5 +1,5 @@
 export default async function generateSitemap() {
-	const result = await fetch('http://localhost:3001/list', {
+	const result = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/list`, {
 		headers: {
 			Authorization: process.env.AUTH_KEY
 		}
