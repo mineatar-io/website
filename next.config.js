@@ -19,6 +19,9 @@ module.exports = {
 	env: {
 		NEXT_PUBLIC_COMMIT_ID: commitID
 	},
+	images: {
+		domains: ['api.mineatar.io', 'localhost']
+	},
 	experimental: {
 		appDir: true
 	}

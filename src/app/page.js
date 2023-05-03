@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import AnchorHeader from '../components/AnchorHeader';
 import WaveImage from '../assets/img/wave.svg';
@@ -11,29 +10,14 @@ import leftBody from '../assets/img/left-body.png';
 import rightBody from '../assets/img/right-body.png';
 import rawSkin from '../assets/img/raw-skin.png';
 import Route from '../components/Route';
+import Search from '../components/Search';
 
 export default function Page() {
 	return (
 		<>
-			<div className="bg-neutral-200">
-				<div className="container mx-auto max-w-4xl pt-12 md:pt-24 md:pb-12 px-4">
-					<div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-8">
-						<Image src={head} alt="Head" width="80" />
-						<hgroup>
-							<h1 className="text-4xl md:text-6xl text-black">
-								<span className="font-black">Mine</span>
-								<span>atar</span>
-							</h1>
-							<p className="text-lg md:text-2xl mt-1">A fast and efficient Minecraft avatar service</p>
-						</hgroup>
-					</div>
-				</div>
-			</div>
-			<div className="overflow-hidden">
-				<WaveImage width="100vw" height="120px" className="text-neutral-200 min-w-[640px]" />
-			</div>
 			<div className="container mx-auto max-w-4xl py-8 px-4">
-				<AnchorHeader size={2} className="text-2xl font-bold" id="about">What is Mineatar?</AnchorHeader>
+				<Search />
+				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="about">What is Mineatar?</AnchorHeader>
 				<p className="mt-3">Mineatar is an online API for developers and website owners that allows the embedding of Minecraft avatars as images, including faces, head renders, and full body renders. It is incredibly fast and supports all of the latest Minecraft features, like slim player models and overlays.</p>
 				<p className="mt-3">It is really easy to get started using our service: simply find the type of image that you are wanting to embed on your own website or service, and copy the URL. Replace the <code>&lt;uuid&gt;</code> text in the URL with the UUID of the Minecraft player, with or without hyphens, both are allowed.</p>
 				<AnchorHeader size={2} className="text-2xl font-bold mt-8" id="features">Features</AnchorHeader>
