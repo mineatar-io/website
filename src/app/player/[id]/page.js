@@ -42,25 +42,25 @@ export default async function Page({ params: { id } }) {
 		profile
 			? <>
 				<div className="border border-neutral-200 rounded-lg p-10 mt-5">
-					<div className="flex flex-row items-center gap-10">
-						<div className="pl-2 pr-10 border-r border-r-neutral-200 py-5">
-							<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" alt={`Full body of ${profile.name}`} priority />
+					<div className="flex flex-col md:flex-row md:items-center gap-10">
+						<div className="w-full md:w-auto md:mx-0 md:pl-2 md:pr-10 md:border-r md:border-r-neutral-200 pb-8 border-b md:border-b-0 border-b-neutral-200 md:pt-8">
+							<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" className="mx-auto md:mx-0" alt={`Full body of ${profile.name}`} priority />
 						</div>
-						<div className="flex flex-col gap-3 grow">
-							<div>
+						<div className="flex flex-col gap-5 md:gap-3 grow break-all">
+							<div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
 								<p className="font-bold text-xl">Username</p>
 								<p className="mt-1 font-mono">{profile.name}</p>
 							</div>
-							<div>
+							<div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
 								<p className="font-bold text-xl">UUID</p>
-								<p className="flex flex-row gap-3 items-center mt-1">
+								<p className="flex flex-col md:flex-row gap-1 md:gap-3 md:items-center mt-1">
 									<span className="font-mono">{hyphenateUUID(profile.id.replaceAll('-', ''))}</span>
 									<CopyToClipboardButton text={hyphenateUUID(profile.id.replaceAll('-', ''))} />
 								</p>
 							</div>
-							<div>
+							<div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
 								<p className="font-bold text-xl">Trimmed UUID</p>
-								<p className="flex flex-row gap-3 items-center mt-1">
+								<p className="flex flex-col md:flex-row gap-1 md:gap-3 md:items-center mt-1">
 									<span className="font-mono">{profile.id.replaceAll('-', '')}</span>
 									<CopyToClipboardButton text={profile.id.replaceAll('-', '')} />
 								</p>
@@ -74,7 +74,7 @@ export default async function Page({ params: { id } }) {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-row items-center gap-5 mt-5">
+				<div className="flex flex-col md:flex-row md:items-center gap-5 mt-5">
 					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
 						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Front side body of ${profile.name}`} priority />
 						<p className="font-bold">Front Side of Body</p>
@@ -92,7 +92,7 @@ export default async function Page({ params: { id } }) {
 						<p className="font-bold">Right Side of Body</p>
 					</div>
 				</div>
-				<div className="flex flex-row items-center gap-5 mt-5">
+				<div className="flex flex-col md:flex-row md:items-center gap-5 mt-5">
 					<div className="border border-neutral-200 rounded-lg p-6 flex flex-col gap-5 items-center grow">
 						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" alt={`Face of ${profile.name}`} priority />
 						<p className="font-bold">Face</p>
