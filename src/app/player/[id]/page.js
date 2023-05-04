@@ -39,12 +39,12 @@ export async function generateMetadata({ params: { id } }) {
 	const profile = await getProfile(id);
 
 	return {
-		title: profile.name,
-		description: `The profile information and rendered skin for the Minecraft player ${profile.name}.`,
+		title: profile?.name ?? 'Unknown',
+		description: `The profile information and rendered skin for the Minecraft player ${profile?.name ?? 'unknown'}.`,
 		openGraph: {
-			title: `${profile.name} - Mineatar`,
-			description: `The profile information and rendered skin for the Minecraft player ${profile.name}.`,
-			url: `/player/${profile.id}`,
+			title: `${profile?.name ?? 'Unknown'} - Mineatar`,
+			description: `The profile information and rendered skin for the Minecraft player ${profile?.name ?? 'unknown'}.`,
+			url: `/player/${id}`,
 			siteName: 'Mineatar',
 			images: [
 				{
