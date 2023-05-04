@@ -8,9 +8,8 @@
 	],
 	"scripts": {
 		"start": "next start src/",
-		"build": "npm run update && next build src/",
-		"dev": "next dev src/",
-		"update": "npx browserslist@latest --update-db"
+		"build": "next build src/",
+		"dev": "next dev src/"
 	},
 	"repository": {
 		"type": "git",
