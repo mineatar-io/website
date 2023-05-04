@@ -26,9 +26,9 @@
 		"@svgr/webpack": "^7.0.0",
 		"autoprefixer": "^10.4.14",
 		"cssnano": "^6.0.1",
-		"eslint-config-next": "^13.3.4",
+		"eslint-config-next": "^13.4.0",
 		"formik": "^2.2.9",
-		"next": "^13.3.3",
+		"next": "^13.4.0",
 		"postcss": "^8.4.23",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -38,7 +38,7 @@
 		"yup": "^1.1.1"
 	},
 	"devDependencies": {
-		"@next/eslint-plugin-next": "^13.3.4",
+		"@next/eslint-plugin-next": "^13.4.0",
 		"@types/semver": "^7.3.13",
 		"eslint": "^8.39.0",
 		"eslint-plugin-react": "^7.32.2"
