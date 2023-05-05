@@ -129,13 +129,13 @@ export default function RootLayout({ children }) {
 							</p>
 							<ul className="flex flex-row items-center gap-3 list-none">
 								<li>
-									<a className="rounded bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 font-mono text-sm" href={`https://github.com/mineatar-io/website/commit/${process.env.NEXT_PUBLIC_COMMIT_ID}`}>MA-{process.env.NEXT_PUBLIC_COMMIT_ID.slice(0, 7)}</a>
-								</li>
-								<li>
 									<a href="https://github.com/mineatar-io" className="link p-1">GitHub</a>
 								</li>
 								<li>
 									<a href="https://status.mineatar.io" className="link p-1">Status Page</a>
+								</li>
+								<li>
+									<a className="block ml-1 rounded bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 font-mono text-sm" href={`https://github.com/mineatar-io/website/commit/${process.env.NEXT_PUBLIC_COMMIT_ID}`}>MA-{process.env.NEXT_PUBLIC_COMMIT_ID.slice(0, 7)}</a>
 								</li>
 							</ul>
 						</div>

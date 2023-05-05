@@ -108,7 +108,7 @@ export default async function Page({ params: { id } }) {
 						<p className="font-bold">Front Side of Body</p>
 					</a>
 					<a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`}>
-						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} priority />
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} priority />
 						<p className="font-bold">Left Side of Body</p>
 					</a>
 					<a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`}>
@@ -116,7 +116,7 @@ export default async function Page({ params: { id } }) {
 						<p className="font-bold">Back Side of Body</p>
 					</a>
 					<a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`}>
-						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="128" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} priority />
+						<Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} priority />
 						<p className="font-bold">Right Side of Body</p>
 					</a>
 				</div>
