@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import AnchorHeader from '../components/AnchorHeader';
-import WaveImage from '../assets/img/wave.svg';
 import head from '../assets/img/head.png';
 import face from '../assets/img/face.png';
 import fullBody from '../assets/img/full-body.png';
@@ -109,22 +108,6 @@ export default function Page() {
 							<p className="mt-1">A fast and simple Minecraft server status utility that also has an API</p>
 						</div>
 					</a>
-				</div>
-			</div>
-			<WaveImage width="100vw" height="60px" className="text-neutral-200 -scale-x-100 -scale-y-100" />
-			<div className="bg-neutral-200">
-				<div className="container mx-auto max-w-4xl pt-2 pb-6 px-8">
-					<div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center">
-						<p>&copy; <span className="font-bold">{new Date().getFullYear()} Jacob Gunther</span></p>
-						<ul className="flex flex-row gap-3 list-none">
-							<li>
-								<a href="https://github.com/mineatar-io" className="link p-1">GitHub</a>
-							</li>
-							<li>
-								<a href="https://status.mineatar.io" className="link p-1">Status Page</a>
-							</li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</>
