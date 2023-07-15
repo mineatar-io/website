@@ -41,16 +41,6 @@
     },
     "overrides": [
         {
-            "files": [
-                "next.config.js",
-                "tailwind.config.js",
-                "postcss.config.js"
-            ],
-            "env": {
-                "commonjs": true
-            }
-        },
-        {
             "files": "src/public/js/ga.js",
             "globals": {
                 "dataLayer": true

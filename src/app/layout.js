@@ -1,11 +1,12 @@
-import Link from 'next/link';
+import '@/styles/global.sass';
+
+import { Fira_Mono, Inter } from 'next/font/google';
 import Image from 'next/image';
+import Link from 'next/link';
 import Script from 'next/script';
-import { Inter, Fira_Mono } from 'next/font/google';
-import WaveImage from '../assets/img/wave.svg';
-import RedHeartIcon from '../assets/icons/heart-red.svg';
-import head from '../assets/img/head.png';
-import '../styles/global.sass';
+import RedHeartIcon from '@/assets/icons/heart-red.svg';
+import head from '@/assets/img/head.png';
+import WaveImage from '@/assets/img/wave.svg';
 
 const interFont = Inter({
 	variable: '--font-inter',

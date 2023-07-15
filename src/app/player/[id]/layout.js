@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Search from '../../../components/Search';
-import CornerUpLeftIcon from '../../../assets/icons/corner-up-left.svg';
+import CornerUpLeftIcon from '@/assets/icons/corner-up-left.svg';
+import Search from '@/components/Search';
 
 export default async function Page({ params: { id }, children }) {
 	return (

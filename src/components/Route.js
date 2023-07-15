@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-export default function Route({ path, query, result }) {
+export default function Route({ path, query, result, ...props }) {
 	return (
-		<div className="flex flex-col md:flex-row border border-neutral-200 p-5 rounded-lg max-w-full overflow-x-auto">
+		<div className="flex flex-col md:flex-row border border-neutral-200 p-5 rounded-lg max-w-full overflow-x-auto" {...props}>
 			<div className="md:border-r md:border-r-neutral-200 md:pr-5 grow">
 				<p className="flex items-center gap-2 leading-6">
 					<span className="bg-green-500 text-white text-sm font-mono px-2 py-1 rounded">GET</span>

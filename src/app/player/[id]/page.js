@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import DownloadIcon from '../../../assets/icons/download.svg';
-import CopyToClipboardButton from '../../../components/CopyToClipboardButton';
+import DownloadIcon from '@/assets/icons/download.svg';
+import CopyToClipboardButton from '@/components/CopyToClipboardButton';
 
 const hyphenateUUID = (uuid) => `${uuid.slice(0, 8)}-${uuid.slice(8, 12)}-${uuid.slice(12, 16)}-${uuid.slice(16, 20)}-${uuid.slice(20, 32)}`;
 
@@ -94,7 +94,7 @@ export default async function Page({ params: { id } }) {
 								</p>
 							</div>
 							<div className="flex flex-row gap-3 mt-2">
-								<a className="flex flex-row items-center gap-2 px-3 py-2 rounded border border-neutral-300 hover:border-neutral-500" href={`https://api.mineatar.io/skin/${profile.id}?download=true`} target="_blank" rel="noreferrer">
+								<a className="flex items-center gap-2 button" href={`https://api.mineatar.io/skin/${profile.id}?download=true`} target="_blank" rel="noreferrer">
 									<DownloadIcon width="20" height="20" />
 									<span>Download Raw Skin</span>
 								</a>

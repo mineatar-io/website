@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import AnchorHeader from '../components/AnchorHeader';
-import head from '../assets/img/head.png';
-import face from '../assets/img/face.png';
-import fullBody from '../assets/img/full-body.png';
-import frontBody from '../assets/img/front-body.png';
-import backBody from '../assets/img/back-body.png';
-import leftBody from '../assets/img/left-body.png';
-import rightBody from '../assets/img/right-body.png';
-import rawSkin from '../assets/img/raw-skin.png';
-import Route from '../components/Route';
-import Search from '../components/Search';
+import backBody from '@/assets/img/back-body.png';
+import face from '@/assets/img/face.png';
+import frontBody from '@/assets/img/front-body.png';
+import fullBody from '@/assets/img/full-body.png';
+import head from '@/assets/img/head.png';
+import leftBody from '@/assets/img/left-body.png';
+import rawSkin from '@/assets/img/raw-skin.png';
+import rightBody from '@/assets/img/right-body.png';
+import AnchorHeader from '@/components/AnchorHeader';
+import Route from '@/components/Route';
+import Search from '@/components/Search';
 
 export default function Page() {
 	return (

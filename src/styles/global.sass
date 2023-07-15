@@ -2,6 +2,22 @@
 @tailwind components
 @tailwind utilities
 
+@layer components
+    .button
+        @apply px-3 py-2 border rounded
+
+        &:disabled
+            @apply border-neutral-100 bg-neutral-100
+
+        &:not(:disabled)
+            @apply border-neutral-300 hover:border-neutral-500 focus:border-neutral-500
+
+    .input
+        @apply px-3 py-2 border rounded border-neutral-300 hover:border-neutral-500 focus:border-neutral-500 rounded outline-none
+
+        &[data-error="true"]
+            @apply border-red-500
+
 code
     @apply text-red-600 font-mono break-words
 
