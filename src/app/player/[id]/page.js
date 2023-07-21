@@ -62,7 +62,7 @@ export async function generateMetadata({ params: { id } }) {
 export default async function Page({ params: { id } }) {
     const profile = await getProfile(id);
 
-    const uuidWithHyphens = profile ? hyphenateUUID(profile.id) : null;
+    const uuidWithHyphens = profile?.id ? hyphenateUUID(profile.id) : null;
 
     return (
         profile
