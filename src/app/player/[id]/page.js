@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import getPlayer from '@/actions/getPlayer';
+import lookupUsername from '@/actions/lookupUsername';
 import DownloadIcon from '@/assets/icons/download.svg';
 import CopyToClipboardButton from '@/components/CopyToClipboardButton';
 
@@ -6,33 +8,13 @@ const hyphenateUUID = (uuid) => `${uuid.slice(0, 8)}-${uuid.slice(8, 12)}-${uuid
 
 export async function getProfile(uuid) {
     if (/^[A-Za-z0-9_]{1,16}$/.test(uuid)) {
-        const result = await fetch(`${process.env.NEXT_PUBLIC_INTERNAL_API_HOST}/lookup?username=${encodeURIComponent(uuid)}`);
+        const result = await lookupUsername(uuid);
+        if (!result) return null;
 
-        if (result.status !== 200) {
-            if (result.status === 404) return null;
-
-            const body = await result.text();
-
-            throw new Error(body);
-        }
-
-        const body = await result.json();
-        uuid = body.id;
+        uuid = result.id;
     }
 
-    const result = await fetch(`${process.env.NEXT_PUBLIC_INTERNAL_API_HOST}/player?uuid=${encodeURIComponent(uuid)}`);
-    const body = await result.json();
-
-    try {
-        // This is to ensure that the skin will be fetched from Mojang before
-        // all the rendered images are served to the client, to prevent any
-        // race conditions on the server.
-        await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/skin/${encodeURIComponent(body.id)}`);
-    } catch {
-        // Ignore
-    }
-
-    return body;
+    return await getPlayer(uuid);
 }
 
 export async function generateMetadata({ params: { id } }) {
@@ -131,7 +113,7 @@ export default async function Page({ params: { id } }) {
                     </a>
                 </div>
             </>
-            : <div className="border border-red-500 bg-red-100 rounded-lg p-5 mt-5">
+            : <div className="border border-red-500 bg-red-500/5 rounded-lg p-5 mt-5">
                 <p className="font-bold text-red-500">No Minecraft player was found with the username or UUID <code>{id}</code>.</p>
             </div>
     );

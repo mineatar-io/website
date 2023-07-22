@@ -18,11 +18,12 @@
         &[data-error="true"]
             @apply border-red-500
 
+@layer utilities
+    .link
+        @apply text-blue-600 hover:text-blue-700 hover:underline underline-offset-2
+
 code
     @apply text-red-600 font-mono break-words
 
 h1[id], h2[id], h3[id], h4[id], h5[id]
     @apply scroll-mt-8
-
-.link
-    @apply text-blue-500 hover:text-blue-600 underline-offset-2 hover:underline

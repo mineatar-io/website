@@ -24,5 +24,8 @@ module.exports = {
     },
     images: {
         domains: ['api.mineatar.io', 'localhost']
+    },
+    experimental: {
+        serverActions: true
     }
 };
