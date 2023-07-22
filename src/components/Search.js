@@ -21,7 +21,7 @@ export default function Search({ username = '', className = '', ...props }) {
     });
 
     return (
-        <div className={`border border-neutral-200 rounded-lg p-5 ${className}`} {...props}>
+        <div className={`card ${className}`} {...props}>
             <form onSubmit={form.handleSubmit}>
                 <label className="font-bold" htmlFor="username">Lookup Player</label>
                 <div className="flex flex-col sm:flex-row gap-3 mt-2">

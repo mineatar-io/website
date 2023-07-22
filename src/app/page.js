@@ -140,7 +140,7 @@ export default function Page() {
                     <AnchorHeader size={2} className="text-2xl font-bold" id="also-check-out">Also check out...</AnchorHeader>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                         <a href="https://mcstatus.io">
-                            <div className="border border-neutral-200 hover:border-neutral-300 rounded-lg p-5">
+                            <div className="card card-hover">
                                 <p className="font-bold text-lg">mcstatus.io</p>
                                 <p className="mt-1">A fast and simple Minecraft server status utility that also has an API</p>
                             </div>

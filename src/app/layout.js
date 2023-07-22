@@ -97,17 +97,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${interFont.variable} ${firaMonoFont.variable}`}>
-            <body className="bg-white overflow-x-hidden w-[100vw] scroll-smooth">
+            <body className="bg-white dark:bg-neutral-950 text-black dark:text-white overflow-x-hidden w-[100vw] scroll-smooth">
                 <div className="flex flex-col min-h-screen">
                     <div className="grow">
                         <Header />
                         <div className="overflow-hidden">
-                            <WaveImage width="100vw" height="120px" className="text-neutral-200 min-w-[640px]" />
+                            <WaveImage width="100vw" height="120px" className="text-neutral-200 dark:text-neutral-900 min-w-[640px]" />
                         </div>
                         {children}
                     </div>
                     <div>
-                        <WaveImage width="100vw" height="60px" className="text-neutral-200 -scale-x-100 -scale-y-100" />
+                        <WaveImage width="100vw" height="60px" className="text-neutral-200 dark:text-neutral-900 -scale-x-100 -scale-y-100" />
                         <Footer />
                     </div>
                 </div>

@@ -2,20 +2,20 @@ import Image from 'next/image';
 
 export default function Route({ path, query, result, ...props }) {
     return (
-        <div className="flex flex-col md:flex-row border border-neutral-200 p-5 rounded-lg max-w-full overflow-x-auto" {...props}>
-            <div className="md:border-r md:border-r-neutral-200 md:pr-5 grow">
+        <div className="card flex flex-col md:flex-row gap-5 max-w-full overflow-x-auto" {...props}>
+            <div className="grow">
                 <p className="flex items-center gap-2 leading-6">
                     <span className="bg-green-700 text-white text-xs px-2 py-1 rounded">GET</span>
                     <code>https://api.mineatar.io<span className="font-bold">{path}</span></code>
                 </p>
                 <p className="font-bold mt-5">Query Parameters</p>
-                <table className="table table-auto border border-neutral-200 min-w-[640px] mt-2">
+                <table className="table table-auto border border-neutral-200 dark:border-neutral-800 min-w-[640px] mt-2">
                     <thead className="table-header-group">
                         <tr className="table-row">
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Name</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 w-2/12">Data Type</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 w-1/12">Default</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 w-7/12">Description</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-2/12">Name</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-2/12">Data Type</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-1/12">Default</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-7/12">Description</th>
                         </tr>
                     </thead>
                     <tbody className="table-row-group">

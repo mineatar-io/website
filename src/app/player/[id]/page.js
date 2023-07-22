@@ -50,9 +50,9 @@ export default async function Page({ params: { id } }) {
 
     return (
         <div>
-            <div className="border border-neutral-200 rounded-lg p-10 mt-5">
+            <div className="card mt-5 p-10">
                 <div className="flex flex-col md:flex-row md:items-center gap-10">
-                    <div className="w-full md:w-auto md:mx-0 md:pl-2 md:pr-10 md:border-r md:border-r-neutral-200 pb-8 border-b md:border-b-0 border-b-neutral-200 md:pt-8">
+                    <div className="w-full md:w-auto md:mx-0 md:pl-2 md:pr-10 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-800 pb-8 border-b md:border-b-0 border-b-neutral-200 dark:border-b-neutral-800 md:pt-8">
                         <a href={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`}>
                             <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" className="mx-auto md:mx-0" alt={`Full body of ${profile.name}`} priority />
                         </a>
@@ -86,29 +86,29 @@ export default async function Page({ params: { id } }) {
                 </div>
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-5 mt-5">
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/front/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Front side body of ${profile.name}`} priority />
                     <p className="font-bold">Front Side of Body</p>
                 </a>
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/left/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Left side body of ${profile.name}`} priority />
                     <p className="font-bold">Left Side of Body</p>
                 </a>
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/back/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Back side body of ${profile.name}`} priority />
                     <p className="font-bold">Back Side of Body</p>
                 </a>
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/4" href={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/right/${profile.id}?scale=16`} width="256" height="512" className="max-h-[216px] w-auto" alt={`Right side body of ${profile.name}`} priority />
                     <p className="font-bold">Right Side of Body</p>
                 </a>
             </div>
             <div className="flex flex-col md:flex-row md:items-center gap-5 mt-5">
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/2" href={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/2" href={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/face/${profile.id}?scale=32`} width="256" height="256" className="max-h-[216px] w-auto" alt={`Face of ${profile.name}`} priority />
                     <p className="font-bold">Face</p>
                 </a>
-                <a className="border border-neutral-200 hover:border-neutral-500 rounded-lg p-6 flex flex-col gap-5 items-center basis-1/2" href={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`}>
+                <a className="card card-hover p-6 flex flex-col gap-5 items-center basis-1/2" href={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`}>
                     <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/head/${profile.id}?scale=16`} width="221" height="256" className="max-h-[216px] w-auto" alt={`Head of ${profile.name}`} priority />
                     <p className="font-bold">Head</p>
                 </a>
