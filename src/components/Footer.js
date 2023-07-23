@@ -13,7 +13,7 @@ export default function Footer() {
                     </p>
                     <ul className="flex flex-row items-center gap-3 list-none">
                         <li>
-                            <a href="https://discord.gg/Tf4xwK3Ke7" className="link p-1">Discord</a>
+                            <a href="https://discord.gg/QwvzbA9KGz" className="link p-1">Discord</a>
                         </li>
                         <li>
                             <a href="https://github.com/mineatar-io" className="link p-1">GitHub</a>
