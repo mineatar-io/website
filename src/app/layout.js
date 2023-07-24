@@ -2,7 +2,6 @@ import '@/styles/global.sass';
 
 import { Fira_Mono, Inter } from 'next/font/google';
 import Script from 'next/script';
-import WaveImage from '@/assets/img/wave.svg';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
@@ -97,19 +96,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${interFont.variable} ${firaMonoFont.variable}`}>
-            <body className="bg-white dark:bg-neutral-950 text-black dark:text-white overflow-x-hidden w-[100vw] scroll-smooth">
+            <body className="bg-white dark:bg-neutral-900 text-black dark:text-white overflow-x-hidden w-[100vw] scroll-smooth">
                 <div className="flex flex-col min-h-screen">
                     <div className="grow">
                         <Header />
-                        <div className="overflow-hidden">
-                            <WaveImage width="100vw" height="120px" className="text-neutral-200 dark:text-neutral-900 min-w-[640px]" />
-                        </div>
                         {children}
                     </div>
-                    <div>
-                        <WaveImage width="100vw" height="60px" className="text-neutral-200 dark:text-neutral-900 -scale-x-100 -scale-y-100" />
-                        <Footer />
-                    </div>
+                    <Footer />
                 </div>
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-76CZV53176" strategy="afterInteractive" />
                 <Script src="/js/ga.js" id="google-analytics" strategy="afterInteractive" />

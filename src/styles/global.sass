@@ -4,32 +4,39 @@
 
 @layer components
     .card
-        @apply border border-neutral-200 dark:border-neutral-800 rounded-lg p-5
+        @apply bg-neutral-100 dark:bg-neutral-800 rounded p-5
 
         &.card-hover
-            @apply hover:border-neutral-500 focus:border-neutral-500
+            @apply hover:bg-neutral-200 dark:hover:bg-neutral-700
 
     .button
-        @apply px-3 py-2 border rounded
+        @apply px-3 py-2 rounded
 
         &:disabled
-            @apply border-neutral-100 dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-900
+            @apply bg-black
 
         &:not(:disabled)
-            @apply border-neutral-300 dark:border-neutral-800 hover:border-neutral-500 focus:border-neutral-500
+            @apply bg-neutral-900 hover:bg-neutral-950 focus:bg-neutral-950
 
     .input
-        @apply px-3 py-2 border rounded border-neutral-300 dark:border-neutral-800 hover:border-neutral-500 focus:border-neutral-500 rounded outline-none bg-transparent
+        @apply px-3 py-2 rounded rounded outline-none bg-neutral-900 hover:bg-neutral-950 focus:bg-neutral-950
 
-        &[data-error="true"]
-            @apply border-red-500
+    code
+        @apply text-red-600 dark:text-red-400 font-mono break-words
+
+    .title
+        &:is(h1)
+            @apply text-4xl md:text-6xl
+
+            & + .subtitle
+                @apply text-lg md:text-2xl text-neutral-300
+
+        &:is(h2)
+            @apply text-2xl font-bold
+
+        &:is(h3)
+            @apply text-xl font-semibold
 
 @layer utilities
     .link
         @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 hover:underline underline-offset-2
-
-code
-    @apply text-red-600 dark:text-red-400 font-mono break-words
-
-h1[id], h2[id], h3[id], h4[id], h5[id]
-    @apply scroll-mt-8

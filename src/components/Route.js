@@ -9,19 +9,19 @@ export default function Route({ path, query, result, ...props }) {
                     <code>https://api.mineatar.io<span className="font-bold">{path}</span></code>
                 </p>
                 <p className="font-bold mt-5">Query Parameters</p>
-                <table className="table table-auto border border-neutral-200 dark:border-neutral-800 min-w-[640px] mt-2">
+                <table className="table table-auto border-x border-t border-neutral-200 dark:border-neutral-700 min-w-[640px] mt-2">
                     <thead className="table-header-group">
                         <tr className="table-row">
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-2/12">Name</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-2/12">Data Type</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-1/12">Default</th>
-                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-800 w-7/12">Description</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-700 w-2/12">Name</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-700 w-2/12">Data Type</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-700 w-1/12">Default</th>
+                            <th className="table-cell text-left p-3 border-b border-b-neutral-200 dark:border-b-neutral-700 w-7/12">Description</th>
                         </tr>
                     </thead>
                     <tbody className="table-row-group">
                         {
                             query.map((param, index) => (
-                                <tr className="table-row" key={index}>
+                                <tr className="table-row border-b border-b-neutral-200 dark:border-b-neutral-700" key={index}>
                                     <th className="table-cell text-left p-3"><code>{param.name}</code></th>
                                     <td className="table-cell text-left p-3"><code>{param.type}</code></td>
                                     <td className="table-cell text-left p-3"><code>{param.default}</code></td>
