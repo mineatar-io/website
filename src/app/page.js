@@ -13,13 +13,15 @@ import leftBody from '@/assets/img/left-body.png';
 import rawSkin from '@/assets/img/raw-skin.png';
 import rightBody from '@/assets/img/right-body.png';
 import AnchorHeader from '@/components/AnchorHeader';
+import Header from '@/components/Header';
 import Route from '@/components/Route';
 import Search from '@/components/Search';
 
 export default function Page() {
     return (
         <>
-            <div className="container mx-auto max-w-4xl py-12 px-4">
+            <Header />
+            <div className="container py-12">
                 <Search />
                 <section className="py-6 mt-6">
                     <AnchorHeader size={2} id="about">What is Mineatar?</AnchorHeader>

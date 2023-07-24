@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Route({ path, query, result, ...props }) {
     return (
         <div className="card flex flex-col md:flex-row gap-5 max-w-full overflow-x-auto" {...props}>
-            <div className="grow">
+            <div className="grow w-fit">
                 <p className="flex items-center gap-2 leading-6">
                     <span className="bg-green-700 text-white text-xs px-2 py-1 rounded">GET</span>
                     <code>https://api.mineatar.io<span className="font-bold">{path}</span></code>
