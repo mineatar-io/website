@@ -7,22 +7,22 @@
         @apply mx-auto max-w-4xl px-5
 
     .card
-        @apply bg-neutral-100 dark:bg-neutral-800 rounded p-5
+        @apply bg-neutral-200 dark:bg-neutral-800 rounded p-5
 
         &.card-hover
-            @apply hover:bg-neutral-200 dark:hover:bg-neutral-700
+            @apply hover:bg-neutral-300 dark:hover:bg-neutral-700
 
     .button
         @apply px-3 py-2 rounded
 
         &:disabled
-            @apply bg-black
+            @apply bg-neutral-200 dark:bg-black text-neutral-500
 
         &:not(:disabled)
-            @apply bg-neutral-900 hover:bg-neutral-950 focus:bg-neutral-950
+            @apply bg-neutral-300 hover:bg-neutral-400 focus:bg-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-950 dark:focus:bg-neutral-950
 
     .input
-        @apply px-3 py-2 rounded rounded outline-none bg-neutral-900 hover:bg-neutral-950 focus:bg-neutral-950
+        @apply px-3 py-2 rounded rounded outline-none bg-neutral-300 hover:bg-neutral-400 focus:bg-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-950 dark:focus:bg-neutral-950
 
     code
         @apply text-red-600 dark:text-red-400 font-mono break-words
@@ -32,7 +32,7 @@
             @apply text-4xl md:text-6xl
 
             & + .subtitle
-                @apply text-lg md:text-2xl text-neutral-300
+                @apply text-lg md:text-2xl text-neutral-500 dark:text-neutral-300
 
         &:is(h2)
             @apply text-2xl font-bold
