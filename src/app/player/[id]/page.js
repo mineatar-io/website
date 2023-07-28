@@ -49,27 +49,27 @@ export default async function Page({ params: { id } }) {
     const uuidWithHyphens = profile.id ? hyphenateUUID(profile.id) : null;
 
     return (
-        <div>
+        <>
             <div className="card mt-5 p-10">
                 <div className="flex flex-col md:flex-row md:items-center gap-10">
-                    <div className="w-full md:w-auto md:mx-0 md:pl-2 md:pr-10 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-800 pb-8 border-b md:border-b-0 border-b-neutral-200 dark:border-b-neutral-800 md:pt-8">
+                    <div className="w-full md:w-auto md:mx-0 md:pl-8 md:pr-10 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-800 pb-8 border-b md:border-b-0 border-b-neutral-200 dark:border-b-neutral-800 md:pt-8">
                         <a href={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`}>
                             <Image src={`${process.env.NEXT_PUBLIC_API_HOST}/body/full/${profile.id}?scale=16`} width="96" height="216" className="mx-auto md:mx-0" alt={`Full body of ${profile.name}`} priority />
                         </a>
                     </div>
                     <div className="flex flex-col gap-5 md:gap-3 grow break-all">
-                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
+                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-300 dark:border-b-neutral-700">
                             <p className="font-bold text-xl">Username</p>
                             <p className="mt-1 font-mono">{profile.name}</p>
                         </div>
-                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
+                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-300 dark:border-b-neutral-700">
                             <p className="font-bold text-xl">UUID</p>
                             <p className="flex flex-col md:flex-row gap-1 md:gap-3 md:items-center mt-1">
                                 <span className="font-mono">{uuidWithHyphens}</span>
                                 <CopyToClipboardButton text={uuidWithHyphens} />
                             </p>
                         </div>
-                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-200">
+                        <div className="pb-5 mb:pb-0 border-b md:border-b-0 border-b-neutral-300 dark:border-b-neutral-700">
                             <p className="font-bold text-xl">Trimmed UUID</p>
                             <p className="flex flex-col md:flex-row gap-1 md:gap-3 md:items-center mt-1">
                                 <span className="font-mono">{profile.id}</span>
@@ -113,6 +113,6 @@ export default async function Page({ params: { id } }) {
                     <p className="font-bold">Head</p>
                 </a>
             </div>
-        </div>
+        </>
     );
 }
