@@ -54,7 +54,7 @@ export default function Header() {
                     <div className="flex flex-col md:flex-row items-center gap-3">
                         {
                             count !== null
-                                ? <p className="hidden md:block text-neutral-700 dark:text-neutral-300">{count} unique players retrieved</p>
+                                ? <p className="hidden md:block text-neutral-700 dark:text-neutral-300">{count.toLocaleString()} unique players retrieved</p>
                                 : <p className="hidden md:block text-neutral-700 dark:text-neutral-300">Loading...</p>
                         }
                         <a className="w-full md:w-fit md:ml-auto flex items-center justify-center gap-3 p-3 rounded bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10" href="https://discord.gg/QwvzbA9KGz">
@@ -71,7 +71,7 @@ export default function Header() {
                         </a>
                         {
                             count !== null
-                                ? <p className="block md:hidden text-neutral-700 dark:text-neutral-300">{count} unique players retrieved</p>
+                                ? <p className="block md:hidden text-neutral-700 dark:text-neutral-300">{count.toLocaleString()} unique players retrieved</p>
                                 : <p className="block md:hidden text-neutral-700 dark:text-neutral-300">Loading...</p>
                         }
                     </div>
