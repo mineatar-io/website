@@ -14,7 +14,7 @@ export default async function Page({ params: { id }, children }) {
                         <span>Back to Home</span>
                     </p>
                 </Link>
-                <Search username={id} />
+                <Search defaultUsername={id} />
                 {children}
             </div>
         </>

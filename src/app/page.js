@@ -139,7 +139,7 @@ export default function Page() {
                     <p className="mt-1">If you would like to contact us, you can do so by sending an email to <a href="mailto:contact@mineatar.io" className="link">contact@mineatar.io</a>.</p>
                 </section>
                 <section className="py-6">
-                    <AnchorHeader size={2} id="also-check-out">Also check out...</AnchorHeader>
+                    <AnchorHeader size={2} id="partners">Partners</AnchorHeader>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                         <a href="https://mcstatus.io">
                             <div className="card card-hover">
