@@ -53,7 +53,7 @@ export default function Page() {
             <section className="pt-12">
                 <AnchorHeader size={2} id="partners">Partners</AnchorHeader>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
-                    <a href="https://serverflex.io/product/minecraft-server-hosting?utm_source=mcstatus.io">
+                    <a href="https://serverflex.io/product/minecraft-server-hosting?utm_source=mineatar.io">
                         <div className="card card-hover">
                             <div className="flex items-center gap-3">
                                 <Image src={serverFlexLogo} alt="ServerFlex logo" width="28" height="28" />
