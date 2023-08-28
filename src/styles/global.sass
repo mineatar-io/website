@@ -1,3 +1,9 @@
+@mixin box
+    @apply bg-black bg-opacity-10 dark:bg-white dark:bg-opacity-[0.075]
+
+@mixin interactive-box
+    @apply hover:[&:not(:disabled)]:bg-opacity-[0.15] hover:dark:[&:not(:disabled)]:bg-opacity-10 focus:[&:not(:disabled)]:bg-opacity-[0.15] focus:dark:[&:not(:disabled)]:bg-opacity-10 disabled:bg-opacity-5 outline-none
+    
 @tailwind base
 @tailwind components
 @tailwind utilities
@@ -7,10 +13,11 @@
         @apply mx-auto max-w-4xl px-5
 
     .card
-        @apply bg-neutral-200 dark:bg-neutral-800 rounded p-5
+        @include box
+        @apply block p-5 rounded
 
         &.card-hover
-            @apply hover:bg-neutral-300 dark:hover:bg-neutral-700
+            @include interactive-box
 
     .button
         @apply px-3 py-2 rounded
@@ -22,23 +29,63 @@
             @apply bg-neutral-300 hover:bg-neutral-400 focus:bg-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-950 dark:focus:bg-neutral-950
 
     .input
-        @apply px-3 py-2 rounded rounded outline-none bg-neutral-300 hover:bg-neutral-400 focus:bg-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-950 dark:focus:bg-neutral-950
+        @apply px-3 py-2 rounded outline-none bg-neutral-300 hover:bg-neutral-400 focus:bg-neutral-400 dark:bg-neutral-900 dark:hover:bg-neutral-950 dark:focus:bg-neutral-950
 
     code
         @apply text-red-600 dark:text-red-400 font-mono break-words
 
     .title
-        &:is(h1)
-            @apply text-4xl md:text-6xl
+        &[id]
+            @apply scroll-mt-32
 
-            & + .subtitle
-                @apply text-lg md:text-2xl text-neutral-500 dark:text-neutral-300
+            &:has(a, svg)
+                @apply flex items-center gap-2
 
-        &:is(h2)
+                a
+                    @apply border-b border-b-transparent hover:border-b-black dark:hover:border-b-white border-dotted
+
+                    &:hover ~ svg
+                        @apply block
+
+                svg
+                    @apply hidden
+
+        &:is(h1), &.h1
+            @apply text-4xl lg:text-5xl font-black
+
+        &:is(h2), &.h2
             @apply text-2xl font-bold
 
-        &:is(h3)
-            @apply text-xl font-semibold
+        &:is(h3), &.h3
+            @apply text-lg font-bold
+
+    h1.title + .subtitle, .title.h1 + .subtitle, .subtitle.h1
+        @apply text-2xl font-light mt-2 text-neutral-500 dark:text-neutral-300
+
+    h2.title + .subtitle, .title.h2 + .subtitle, .subtitle.h2
+        @apply text-lg font-light text-neutral-500 dark:text-neutral-400
+
+    .badge
+        @apply rounded px-2 py-1 text-sm
+
+        &.badge-blue
+            @apply bg-blue-600 text-white
+
+            &.badge-hover
+                @apply hover:bg-blue-700
+
+    .table
+        @apply table-auto w-full
+
+        thead th
+            @apply p-3 text-black dark:text-white dark:border-neutral-800 bg-black/10 dark:bg-white/10
+
+        tbody
+            td, th
+                @apply p-3 text-center
+
+            tr:not(:last-of-type) th, tr:not(:last-of-type) td
+                @apply border-b border-black/5 dark:border-white/5
 
 @layer utilities
     .link

@@ -38,7 +38,7 @@ export async function generateMetadata({ params: { id } }) {
             ],
             locale: 'en-US',
             type: 'website'
-        },
+        }
     };
 }
 
