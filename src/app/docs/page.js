@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import backBody from '@/assets/img/back-body.png';
 import face from '@/assets/img/face.png';
 import frontBody from '@/assets/img/front-body.png';
 import fullBody from '@/assets/img/full-body.png';
@@ -236,7 +237,7 @@ export default function Page() {
                         </ul>
                     </div>
                     <div>
-                        <Image src={frontBody} alt="Back Body" className="w-[120px] [image-rendering:pixelated;]" />
+                        <Image src={backBody} alt="Back Body" className="w-[120px] [image-rendering:pixelated;]" />
                     </div>
                 </div>
                 <div className="card flex gap-3 mt-3">
