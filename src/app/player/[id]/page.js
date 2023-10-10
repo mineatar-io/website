@@ -7,15 +7,17 @@ import CopyToClipboardButton from '@/components/CopyToClipboardButton';
 
 const hyphenateUUID = (uuid) => `${uuid.slice(0, 8)}-${uuid.slice(8, 12)}-${uuid.slice(12, 16)}-${uuid.slice(16, 20)}-${uuid.slice(20, 32)}`;
 
-export async function getProfile(uuid) {
-    if (/^[A-Za-z0-9_]{1,16}$/.test(uuid)) {
-        const result = await lookupUsername(uuid);
+export async function getProfile(input) {
+    if (!/(?:^[A-Fa-f0-9]{32}$|^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$)|(?:^[A-Za-z0-9_]{1,16}$)/.test(input)) return null;
+
+    if (/^[A-Za-z0-9_]{1,16}$/.test(input)) {
+        const result = await lookupUsername(input);
         if (!result) return null;
 
-        uuid = result.id;
+        input = result.id;
     }
 
-    return await getPlayer(uuid);
+    return await getPlayer(input);
 }
 
 export async function generateMetadata({ params: { id } }) {
