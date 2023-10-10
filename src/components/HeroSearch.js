@@ -29,13 +29,13 @@ export default function HeroSearch({ defaultUsername = '', className = '', ...pr
     return (
         <div className={`card pt-12 ${className}`} {...props}>
             <div className="flex items-center justify-center gap-8">
-                <Image src={head} alt="Mineatar icon" width="96" height="96" />
+                <Image src={head} alt="Mineatar icon" width="96" height="96" priority />
                 <div>
                     <h1 className="title">
                         <span className="font-black">Mine</span>
                         <span className="font-normal">atar</span>
                     </h1>
-                    <p className="subtitle">A fast and efficient skin API for Minecraft</p>
+                    <p className="text-neutral-400 subtitle">A fast and efficient skin API for Minecraft</p>
                 </div>
             </div>
             <hr className="border-neutral-700 my-8" />

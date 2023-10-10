@@ -76,13 +76,13 @@ export default function Navbar() {
                     <li>
                         <a href="https://discord.gg/QwvzbA9KGz" className="flex items-center gap-5 hover:bg-neutral-800 p-3 rounded-full text-sm transition-colors duration-100">
                             <DiscordIcon width="20" height="20" />
-                            <span className="font-bold md:hidden">Discord</span>
+                            <span className="font-bold md:sr-only">Discord</span>
                         </a>
                     </li>
                     <li>
                         <a href="https://github.com/mineatar-io" className="flex items-center gap-5 hover:bg-neutral-800 p-3 rounded-full text-sm transition-colors duration-100">
                             <GitHub width="20" height="20" />
-                            <span className="font-bold md:hidden">GitHub</span>
+                            <span className="font-bold md:sr-only">GitHub</span>
                         </a>
                     </li>
                 </ul>

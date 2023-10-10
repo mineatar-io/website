@@ -35,15 +35,15 @@ export default function Page() {
             <h1 className="title">API Documentation</h1>
             <section className="pt-12">
                 <AnchorHeader size={2} id="overview">Overview</AnchorHeader>
-                <p className="leading-7 mt-3">Mineatar was built to be an alternative to existing service which improves the speed and efficiency of rendering Minecraft player skins as 3-dimensional images. Whether or not you are migrating from an alternative service, we make it easy to get up and running quickly by providing a simple API to use. Everything you need to know to get started is documented below.</p>
+                <p className="text-neutral-300 leading-7 mt-3">Mineatar was built to be an alternative to existing service which improves the speed and efficiency of rendering Minecraft player skins as 3-dimensional images. Whether or not you are migrating from an alternative service, we make it easy to get up and running quickly by providing a simple API to use. Everything you need to know to get started is documented below.</p>
             </section>
             <section className="pt-12">
                 <AnchorHeader size={2} id="caching">Caching</AnchorHeader>
-                <p className="leading-7 mt-3">To prevent any abuse of our API, we implement a cache duration for all rendered images to reduce the amount of work our server has to do. When a skin is retrieved from Mojang, it is cached for 12 hours, meaning a fresh skin will not be retrieved until 12 hours from the previous. The rendered image is also cached for 12 hours. All requests will contain a <code>X-Cache-Hit</code> response header which contains a boolean value which determines whether you hit the cache for the resulting image. If the value was true, then the <code>X-Cache-Time-Remaining</code> header will contain the amount of seconds until that cache expires.</p>
+                <p className="text-neutral-300 leading-7 mt-3">To prevent any abuse of our API, we implement a cache duration for all rendered images to reduce the amount of work our server has to do. When a skin is retrieved from Mojang, it is cached for 12 hours, meaning a fresh skin will not be retrieved until 12 hours from the previous. The rendered image is also cached for 12 hours. All requests will contain a <code>X-Cache-Hit</code> response header which contains a boolean value which determines whether you hit the cache for the resulting image. If the value was true, then the <code>X-Cache-Time-Remaining</code> header will contain the amount of seconds until that cache expires.</p>
             </section>
             <section className="pt-12">
                 <AnchorHeader size={2} id="query-params">Query Parameters</AnchorHeader>
-                <p className="leading-7 mt-3">There is a few ways to modify the resulting image from any API endpoint. Most endpoints support a <code>scale</code> query parameter which changes the size of the image, and a <code>download</code> parameter which tells your browser to open a save dialog. You can refer to the query parameters for each specific endpoint to learn about what you can modify.</p>
+                <p className="text-neutral-300 leading-7 mt-3">There is a few ways to modify the resulting image from any API endpoint. Most endpoints support a <code>scale</code> query parameter which changes the size of the image, and a <code>download</code> parameter which tells your browser to open a save dialog. You can refer to the query parameters for each specific endpoint to learn about what you can modify.</p>
                 <ul className="list-inside list-disc mt-3 pl-5">
                     <li>
                         <code>scale</code>
@@ -337,7 +337,7 @@ export default function Page() {
             </section>
             <section className="pt-12">
                 <AnchorHeader size={2} id="support">Support</AnchorHeader>
-                <p className="leading-7 mt-3">If you need any assistance with our service, feel free to reach out via our <a href="https://discord.gg/QwvzbA9KGz" className="link">Discord server</a> or shoot us an email at <a href="mailto:contact@mineatar.io" className="link">contact@mineatar.io</a>.</p>
+                <p className="text-neutral-300 leading-7 mt-3">If you need any assistance with our service, feel free to reach out via our <a href="https://discord.gg/QwvzbA9KGz" className="link">Discord server</a> or shoot us an email at <a href="mailto:contact@mineatar.io" className="link">contact@mineatar.io</a>.</p>
             </section>
         </>
     );
