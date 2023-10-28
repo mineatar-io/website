@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 import { getProfile } from '@/app/player/[id]/page';
 
 export const runtime = 'edge';

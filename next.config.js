@@ -23,9 +23,18 @@ module.exports = {
         NEXT_PUBLIC_COMMIT_ID: commitID
     },
     images: {
-        domains: ['api.mineatar.io', 'localhost']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'api.mineatar.io'
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost'
+            }
+        ]
     },
     experimental: {
-        serverActions: true
+        webpackBuildWorker: true
     }
 };
