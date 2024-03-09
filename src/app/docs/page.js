@@ -26,6 +26,9 @@ export const metadata = {
         ],
         locale: 'en-US',
         type: 'website'
+    },
+    alternates: {
+        canonical: '/docs'
     }
 };
 

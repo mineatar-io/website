@@ -17,6 +17,9 @@ export const metadata = {
         ],
         locale: 'en-US',
         type: 'website'
+    },
+    alternates: {
+        canonical: '/about'
     }
 };
 
