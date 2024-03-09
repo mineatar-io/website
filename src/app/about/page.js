@@ -2,11 +2,11 @@ import AnchorHeader from '@/components/AnchorHeader';
 
 export const metadata = {
     title: 'About',
-    description: 'The API documentation of Mineatar and how to integrate our service into your own.',
+    description: 'Learn about our service and how we built it, or choose to get in contact with us.',
     openGraph: {
-        title: 'API Documentation - Mineatar',
-        description: 'The API documentation of Mineatar and how to integrate our service into your own.',
-        url: '/docs',
+        title: 'About - Mineatar',
+        description: 'Learn about our service and how we built it, or choose to get in contact with us.',
+        url: '/about',
         siteName: 'Mineatar',
         images: [
             {
