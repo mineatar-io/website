@@ -33,8 +33,5 @@ module.exports = {
                 hostname: 'localhost'
             }
         ]
-    },
-    experimental: {
-        webpackBuildWorker: true
     }
 };
