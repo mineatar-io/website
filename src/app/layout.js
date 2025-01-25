@@ -3,7 +3,6 @@ import '@/styles/global.sass';
 import { Fira_Mono, Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import SwetrixLoader from '@/components/SwetrixLoader';
 
 const interFont = Inter({
     variable: '--font-inter',
@@ -109,7 +108,6 @@ export default function RootLayout({ children }) {
                     </div>
                     <Footer />
                 </div>
-                <SwetrixLoader />
             </body>
         </html>
     );
